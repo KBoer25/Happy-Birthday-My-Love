@@ -29,7 +29,6 @@
         
         h1, h2 { font-family: 'Playfair Display', serif; }
 
-        /* Immersive Garden Layers */
         .garden-layer {
             position: absolute;
             width: 100%;
@@ -49,7 +48,6 @@
             animation: floatSway 8s ease-in-out infinite alternate;
         }
 
-        /* Triggered dynamically when a new garden initializes */
         .floating-flower.visible {
             opacity: 0.75;
             transform: translateY(0) scale(1);
@@ -61,7 +59,6 @@
             100% { transform: translateY(-20px) rotate(15deg) translateX(-5px); }
         }
 
-        /* Layout Framework */
         .screen { display: none; width: 100%; max-width: 600px; padding: 40px 20px; text-align: center; opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 10; }
         .active { display: block; opacity: 1; }
 
@@ -73,7 +70,6 @@
         .btn { padding: 15px 45px; border-radius: 50px; border: none; background: linear-gradient(135deg, var(--crimson), var(--deep-red)); color: white; font-size: 1rem; cursor: pointer; transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1); font-weight: 500; letter-spacing: 1px; box-shadow: 0 5px 18px rgba(164, 22, 26, 0.2); }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(164, 22, 26, 0.32); }
 
-        /* Polished Storybook Container */
         .book-container { background: rgba(255, 255, 255, 0.94); padding: 45px 35px; border-radius: 30px; box-shadow: 0 25px 55px rgba(0,0,0,0.06); border: 1px solid rgba(255, 179, 198, 0.3); position: relative; min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: transform 0.5s ease; }
         .floral-accent { font-size: 32px; margin-bottom: 18px; display: inline-block; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); }
         .wish-num { font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; color: #ff5c8a; font-weight: 600; margin-bottom: 12px; }
@@ -83,14 +79,12 @@
         .btn-sec { background: transparent; border: 1px solid #ffb3c6; color: var(--deep-red); box-shadow: none; }
         .btn-sec:hover { background: rgba(255, 229, 236, 0.5); }
 
-        /* Final Photography Artifact Presentation */
         #final-screen { max-width: 520px; margin: 30px auto; }
-        .photo-frame { width: 100%; margin: 0 auto 30px auto; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 65px rgba(128,0,32,0.22); border: 10px solid white; transform: rotate(-1.5deg); transition: transform 0.5s ease; }
-        .photo-frame:hover { transform: rotate(0deg) scale(1.02); }
+        .photo-frame { width: 100%; margin: 0 auto 30px auto; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 65px rgba(128,0,32,0.22); border: 10px solid white; transform: rotate(-1deg); transition: transform 0.5s ease; }
         .photo-frame img { width: 100%; height: auto; display: block; }
         .final-message { background: white; padding: 45px 35px; border-radius: 28px; box-shadow: 0 20px 45px rgba(0,0,0,0.04); text-align: left; line-height: 1.85; font-size: 1.05rem; border-left: 6px solid var(--crimson); }
         .final-message h2 { margin-bottom: 20px; color: var(--crimson); text-align: center; font-size: 1.9rem; letter-spacing: 0.5px; }
-        .final-message p { margin-bottom: 15px; text-align: justify; }
+        .final-message p { margin-bottom: 15px; }
         .sign-off { font-family: 'Playfair Display', serif; font-style: italic; text-align: right; margin-top: 25px; color: var(--crimson); font-weight: 700; font-size: 1.15rem; }
     </style>
 </head>
@@ -154,34 +148,33 @@
             "I wish that instead of just eating at Roma in PIM, we can eat in actual Rome together soon.",
             "I wish that our simplest, most ordinary moments together remain some of the happiest highlights of your days.",
             "I wish that the stars above keep shining their softest light on us, guiding us and keeping us wrapped up in each other's arms forever.",
-            "I wish that you look back on everything you’ve achieved so far with pride in the woman you’ve become.",
+            "I wish that you look back on everything you've achieved so far with pride in the woman you've become.",
             "I wish this life treats you exactly how you deserve to be treated, with endless kindness, warmth, and respect."
         ];
 
-        // 22 Unique botanical configurations tailored dynamically for every page view
         const gardenThemes = [
-            { bg: "linear-gradient(135deg, #ffe5ec, #ffc2d1)", flowers: ["🌸", "💮", "✨"], accent: "🌸 ✨ 🌺" }, // Soft Blush Rose Garden
-            { bg: "linear-gradient(135deg, #f3e5f5, #e1bee7)", flowers: ["🪻", "🔮", "💜"], accent: "🪻 ✨ 🔮" }, // Lavender Fields
-            { bg: "linear-gradient(135deg, #fff3e0, #ffe0b2)", flowers: ["🌻", "🌼", "✨"], accent: "🌻 ✨ 🌼" }, // Golden Marigold Meadow
-            { bg: "linear-gradient(135deg, #e8f5e9, #c8e6c9)", flowers: ["🌿", "🍃", "🍀"], accent: "🍃 ✨ 🌿" }, // Emerald Mint Sanctuary
-            { bg: "linear-gradient(135deg, #e0f7fa, #b2ebf2)", flowers: ["🪷", "💎", "❄️"], accent: "🪷 ✨ 💎" }, // Morning Dew Orchid Oasis
-            { bg: "linear-gradient(135deg, #fff5f5, #fed7d7)", flowers: ["🌹", "🥀", "❤️"], accent: "🌹 ✨ ❤️" }, // Crimson Rose Conservatory
-            { bg: "linear-gradient(135deg, #f0f4f8, #d9e2ec)", flowers: ["💮", "☁️", "✨"], accent: "💮 ✨ ☁️" }, // Serene White Jasmine Bower
-            { bg: "linear-gradient(135deg, #fff9db, #fff3bf)", flowers: ["🌷", "🐱", "✨"], accent: "🌷 ✨ 🐱" }, // Sunny Tulip & Cat Meadow
-            { bg: "linear-gradient(135deg, #f8f0fc, #f1daf7)", flowers: ["🌸", "🪻", "🔮"], accent: "🌸 ✨ 🪻" }, // Violet Dusk Wisteria Grove
-            { bg: "linear-gradient(135deg, #e6fffa, #b2f5ea)", flowers: ["🍵", "🪷", "✨"], accent: "🪷 ✨ 🍵" }, // Osmanthus Tea Garden
-            { bg: "linear-gradient(135deg, #fff0f6, #ffdeeb)", flowers: ["🌺", "🌸", "💖"], accent: "🌺 ✨ 💖" }, // Fuchsia Blossom Vista
-            { bg: "linear-gradient(135deg, #faf5ff, #e9d8fd)", flowers: ["🪻", "💮", "🔮"], accent: "🪻 ✨ 💮" }, // Twilight Lilac Valley
-            { bg: "linear-gradient(135deg, #fffaf0, #fdedf2)", flowers: ["🌹", "🌸", "✨"], accent: "🌹 ✨ 🌸" }, // Peony Bloom Arbor
-            { bg: "linear-gradient(135deg, #f0fdf4, #dcfce7)", flowers: ["✈️", "🌿", "🌼"], accent: "🌿 ✨ ✈️" }, // Global Travel Courtyard
-            { bg: "linear-gradient(135deg, #fdf2f8, #fce7f3)", flowers: ["💄", "🌸", "✨"], accent: "🌸 ✨ 💄" }, // Sephora Pastel Meadow
-            { bg: "linear-gradient(135deg, #eff6ff, #dbeafe)", flowers: ["🪷", "🌟", "✨"], accent: "🪷 ✨ 🌟" }, // Hydrangea Milestone Glade
-            { bg: "linear-gradient(135deg, #fef2f2, #fee2e2)", flowers: ["👑", "🌹", "✨"], accent: "🌹 ✨ 👑" }, // Queen's Royal Garden
-            { bg: "linear-gradient(135deg, #fffbeb, #fef3c7)", flowers: ["🏛️", "🌻", "🇮🇹"], accent: "🌻 ✨ 🏛️" }, // Roman Sunflower Hills
-            { bg: "linear-gradient(135deg, #f5f3ff, #ede9fe)", flowers: ["🏡", "🪻", "✨"], accent: "🪻 ✨ 🏡" }, // Cozy Cottage Backyard
-            { bg: "linear-gradient(135deg, #fff1f2, #ffe4e6)", flowers: ["⭐", "🌙", "✨"], accent: "🌙 ✨ ⭐" }, // Starlit Midnight Meadow
-            { bg: "linear-gradient(135deg, #f0fdfa, #ccfbf1)", flowers: ["🎓", "🪷", "🌿"], accent: "🪷 ✨ 🎓" }, // Botanical Accomplishment Patio
-            { bg: "linear-gradient(135deg, #ffffff, #ffe5ec)", flowers: ["💝", "🌹", "✨"], accent: "💖 ✨ 🌹" }  // Ultimate Eternal Paradise
+            { bg: "linear-gradient(135deg, #ffe5ec, #ffc2d1)", flowers: ["🌸", "💮", "✨"], accent: "🌸 ✨ 🌺" },
+            { bg: "linear-gradient(135deg, #f3e5f5, #e1bee7)", flowers: ["🪻", "🔮", "💜"], accent: "🪻 ✨ 🔮" },
+            { bg: "linear-gradient(135deg, #fff3e0, #ffe0b2)", flowers: ["🌻", "🌼", "✨"], accent: "🌻 ✨ 🌼" },
+            { bg: "linear-gradient(135deg, #e8f5e9, #c8e6c9)", flowers: ["🌿", "🍃", "🍀"], accent: "🍃 ✨ 🌿" },
+            { bg: "linear-gradient(135deg, #e0f7fa, #b2ebf2)", flowers: ["🪷", "💎", "❄️"], accent: "🪷 ✨ 💎" },
+            { bg: "linear-gradient(135deg, #fff5f5, #fed7d7)", flowers: ["🌹", "🥀", "❤️"], accent: "🌹 ✨ ❤️" },
+            { bg: "linear-gradient(135deg, #f0f4f8, #d9e2ec)", flowers: ["💮", "☁️", "✨"], accent: "💮 ✨ ☁️" },
+            { bg: "linear-gradient(135deg, #fff9db, #fff3bf)", flowers: ["🌷", "🐱", "✨"], accent: "🌷 ✨ 🐱" },
+            { bg: "linear-gradient(135deg, #f8f0fc, #f1daf7)", flowers: ["🌸", "🪻", "🔮"], accent: "🌸 ✨ 🪻" },
+            { bg: "linear-gradient(135deg, #e6fffa, #b2f5ea)", flowers: ["🍵", "🪷", "✨"], accent: "🪷 ✨ 🍵" },
+            { bg: "linear-gradient(135deg, #fff0f6, #ffdeeb)", flowers: ["🌺", "🌸", "💖"], accent: "🌺 ✨ 💖" },
+            { bg: "linear-gradient(135deg, #faf5ff, #e9d8fd)", flowers: ["🪻", "💮", "🔮"], accent: "🪻 ✨ 💮" },
+            { bg: "linear-gradient(135deg, #fffaf0, #fdedf2)", flowers: ["🌹", "🌸", "✨"], accent: "🌹 ✨ 🌸" },
+            { bg: "linear-gradient(135deg, #f0fdf4, #dcfce7)", flowers: ["🇲🇾", "🌿", "🌼"], accent: "🌿 ✨ 🇲🇾" },
+            { bg: "linear-gradient(135deg, #fdf2f8, #fce7f3)", flowers: ["💄", "🌸", "✨"], accent: "🌸 ✨ 💄" },
+            { bg: "linear-gradient(135deg, #eff6ff, #dbeafe)", flowers: ["🪷", "🌟", "✨"], accent: "🪷 ✨ 🌟" },
+            { bg: "linear-gradient(135deg, #fef2f2, #fee2e2)", flowers: ["👑", "🌹", "✨"], accent: "🌹 ✨ 👑" },
+            { bg: "linear-gradient(135deg, #fffbeb, #fef3c7)", flowers: ["🏛️", "🌻", "🇮🇹"], accent: "🌻 ✨ 🏛️" },
+            { bg: "linear-gradient(135deg, #f5f3ff, #ede9fe)", flowers: ["🏡", "🪻", "✨"], accent: "🪻 ✨ 🏡" },
+            { bg: "linear-gradient(135deg, #fff1f2, #ffe4e6)", flowers: ["⭐", "🌙", "✨"], accent: "🌙 ✨ ⭐" },
+            { bg: "linear-gradient(135deg, #f0fdfa, #ccfbf1)", flowers: ["🎓", "🪷", "🌿"], accent: "🪷 ✨ 🎓" },
+            { bg: "linear-gradient(135deg, #ffffff, #ffe5ec)", flowers: ["💝", "🌹", "✨"], accent: "💖 ✨ 🌹" }
         ];
 
         let currentIdx = 0;
@@ -200,13 +193,11 @@
             const container = document.getElementById('gardenLayer');
             container.innerHTML = ''; 
             
-            // Generate 12 scattered floating elements perfectly structured on the screen bounds
             for (let i = 0; i < 12; i++) {
                 const flower = document.createElement('div');
                 flower.className = 'floating-flower';
                 flower.innerText = theme.flowers[Math.floor(Math.random() * theme.flowers.length)];
                 
-                // Splits elements securely to the left and right gutters to maximize mobile readability
                 const leftSide = Math.random() < 0.5;
                 const xPos = leftSide ? (Math.random() * 18) : (82 + Math.random() * 14);
                 const yPos = Math.random() * 92;
@@ -214,14 +205,12 @@
                 flower.style.left = `${xPos}%`;
                 flower.style.top = `${yPos}%`;
                 
-                // Randomized smooth drift offsets
                 flower.style.animationDelay = `${Math.random() * -6}s`;
                 flower.style.animationDuration = `${6 + Math.random() * 4}s`;
                 flower.style.fontSize = `${2 + Math.random() * 1.6}rem`;
                 
                 container.appendChild(flower);
                 
-                // Small delay execution to prompt a beautiful fade-in bloom effect
                 setTimeout(() => {
                     flower.classList.add('visible');
                 }, 60);
@@ -231,7 +220,6 @@
         function updateWish() {
             const activeTheme = gardenThemes[currentIdx];
             
-            // Apply environment transformation sequence
             document.body.style.background = activeTheme.bg;
             document.getElementById('garden-emoji-accent').innerText = activeTheme.accent;
             generateGardenDecorations(activeTheme);
@@ -253,7 +241,6 @@
                 currentIdx++;
                 updateWish();
             } else {
-                // Return setup cleanly to a soft background layout for the final picture and letter reveal
                 document.body.style.background = "linear-gradient(135deg, #ffe5ec, #ffb3c6)";
                 document.getElementById('gardenLayer').innerHTML = '';
                 transitionScreen('wish-screen', 'final-screen');
