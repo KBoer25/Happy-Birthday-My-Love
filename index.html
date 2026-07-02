@@ -46,6 +46,9 @@
 </head>
 <body>
 
+    <!-- Hidden Background Audio Component -->
+    <audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
+
     <!-- SCREEN 1: GATEKEEPER -->
     <div id="gate-screen" class="screen active">
         <h1>Only for her eyes to see... 🌹</h1>
@@ -73,12 +76,11 @@
     <!-- SCREEN 3: FINAL CELEBRATION -->
     <div id="final-screen" class="screen">
         <div class="photo-frame">
-            <!-- Adjusted for your exact .jpeg file extension -->
             <img src="image_88f6dc.jpeg" alt="Aura & Arkan">
         </div>
         <div class="final-message">
             <h2>Happy 22nd Birthday! 🎂</h2>
-            <p>To the girl who makes everything look effortless and feel beautiful. May this year bring you all the warmth, joy, and peace in the universe. I love you endlessly, chapter after chapter. ❤️</p>
+            <p>To the girl who makes everything look effortless and feel beautiful. May this year bring you all the warmth, joy, and peace in the universe. I wish only the absolute best for your family and the loved ones around you, because seeing the people you care about happy is what brings you peace. More than anything, I wish you a life free of heavy burdens, filled with genuine joy, and I wish to be the one who stands by you through every single chapter, loving you more with each passing year. ❤️</p>
         </div>
     </div>
 
@@ -105,7 +107,7 @@
             "I wish that our simplest, most ordinary moments together remain some of the happiest highlights of your days.",
             "I wish that the stars above keep shining their softest light on us, guiding us and keeping us wrapped up in each other's arms forever.",
             "I wish that you look back on everything you’ve achieved so far with immense pride in the woman you’ve become.",
-            "I wish this life treats you exactly how you deserve to be treated, with endless kindness, warmth, and respect. I wish only the absolute best for your family and the loved ones around you, because seeing the people you care about happy is what brings you peace. More than anything, I wish you a life free of heavy burdens, filled with genuine joy, and I wish to be the one who stands by you through every single chapter, loving you more with each passing year."
+            "I wish this life treats you exactly how you deserve to be treated, with endless kindness, warmth, and respect."
         ];
 
         let currentIdx = 0;
@@ -113,6 +115,10 @@
         function checkPassword() {
             const input = document.getElementById('passwordInput').value;
             if (input === '03072004') {
+                // Triggers Michael Bublé background audio immediately upon clicking Unlock
+                const music = document.getElementById('bgMusic');
+                music.play().catch(error => console.log("Audio playback interaction triggered safely:", error));
+                
                 transitionScreen('gate-screen', 'wish-screen');
                 updateWish();
             } else {
@@ -161,4 +167,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
