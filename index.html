@@ -3,271 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 22nd Birthday, My Love</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Only For Her Eyes To See 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #896059;
-            --text-color: #333333;
-            --bg-overlay: rgba(255, 254, 252, 0.92);
-            --accent-color: #b58d85;
+            --deep-red: #800020;
+            --crimson: #a4161a;
+            --white: #ffffff;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-            background: url('image_88f6dc.jpeg') no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Smooth transition for the changing background gardens */
+        body { 
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1); 
+            font-family: 'Inter', sans-serif; 
+            color: var(--deep-red); 
+            overflow: hidden; 
+            min-height: 100vh; 
+            display: flex; 
+            justify-content: center; 
             align-items: center;
-            padding: 20px;
+            transition: background 1s ease;
+            position: relative;
         }
+        
+        h1, h2 { font-family: 'Playfair Display', serif; }
 
-        .container {
-            background: var(--bg-overlay);
-            max-width: 680px;
+        /* Floating Garden Flowers Layer */
+        .garden-layer {
+            position: absolute;
             width: 100%;
-            padding: 50px 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            backdrop-filter: blur(8px);
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        header h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        .floating-flower {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.7;
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: floatSway 6s ease-in-out infinite alternate;
         }
 
-        header p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            color: #666;
+        @keyframes floatSway {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(15deg); }
         }
 
-        .wishes-container {
-            text-align: left;
-            margin-bottom: 40px;
-        }
+        .screen { display: none; width: 100%; max-width: 600px; padding: 30px; text-align: center; opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 10; }
+        .active { display: block; opacity: 1; }
 
-        .wish-card {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(137, 96, 89, 0.1);
-        }
+        #gate-screen h1 { font-size: 2.2rem; font-style: italic; margin-bottom: 25px; color: var(--crimson); letter-spacing: 1px; text-shadow: 0 2px 10px rgba(255,255,255,0.5); }
+        .pwd-box { background: rgba(255, 255, 255, 0.95); padding: 40px 30px; border-radius: 24px; box-shadow: 0 15px 35px rgba(164, 22, 26, 0.12); border: 1px solid rgba(255, 179, 198, 0.4); backdrop-filter: blur(10px); }
+        input { width: 100%; padding: 15px; border-radius: 50px; border: 1px solid #ffb3c6; font-size: 1.1rem; text-align: center; margin-bottom: 20px; outline: none; color: var(--deep-red); background: #fffcfd; }
+        input:focus { border-color: var(--crimson); box-shadow: 0 0 10px rgba(164,22,26,0.1); }
+        
+        .btn { padding: 14px 40px; border-radius: 50px; border: none; background: linear-gradient(135deg, var(--crimson), var(--deep-red)); color: white; font-size: 1rem; cursor: pointer; transition: 0.3s; font-weight: 500; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(164, 22, 26, 0.2); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(164, 22, 26, 0.3); }
 
-        .wish-card:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+        .book-container { background: rgba(255, 255, 255, 0.95); padding: 40px 30px; border-radius: 24px; box-shadow: 0 20px 45px rgba(0,0,0,0.08); border: 1px solid rgba(255, 179, 198, 0.4); position: relative; min-height: 380px; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(10px); }
+        .floral-accent { font-size: 28px; margin-bottom: 15px; transition: transform 0.5s ease; }
+        .wish-num { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: #ff7096; font-weight: 600; margin-bottom: 10px; }
+        .wish-text { font-family: 'Playfair Display', serif; font-size: 1.35rem; line-height: 1.7; font-style: italic; color: var(--deep-red); margin-bottom: 30px; }
+        .nav-btns { display: flex; justify-content: space-between; gap: 15px; }
+        .btn-sec { background: transparent; border: 1px solid #ffb3c6; color: var(--deep-red); box-shadow: none; }
+        .btn-sec:hover { background: #ffe5ec; }
 
-        .flower-tag {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .wish-num {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #999;
-            margin-bottom: 5px;
-        }
-
-        .wish-text {
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--text-color);
-        }
-
-        .special-wish {
-            background: rgba(137, 96, 89, 0.04);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        footer {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-top: 30px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 20px;
-        }
+        #final-screen { max-width: 700px; padding: 40px 20px; }
+        .photo-frame { width: 100%; max-width: 450px; margin: 0 auto 35px auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 55px rgba(128,0,32,0.2); border: 8px solid white; transform: rotate(-1deg); }
+        .photo-frame img { width: 100%; height: auto; display: block; }
+        .final-message { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: left; line-height: 1.8; font-size: 1.05rem; border-left: 5px solid var(--crimson); }
+        .final-message h2 { margin-bottom: 20px; color: var(--crimson); text-align: center; font-size: 2rem; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Happy Birthday, My Love</h1>
-            <p>22 Wishes & 22 Flowers for Your 22nd Year</p>
-        </header>
+    <!-- DYNAMIC BACKGROUND LAYER -->
+    <div id="gardenLayer" class="garden-layer"></div>
 
-        <div class="wishes-container">
-            
-            <div class="wish-card">
-                <div class="wish-num">Wish 1</div>
-                <div class="flower-tag">White Camellia <span>• For absolute gentleness</span></div>
-                <div class="wish-text">I wish that the universe always treats you with the same absolute gentleness and innocence you bring into the world.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 2</div>
-                <div class="flower-tag">Blue Delphinium <span>• For infinite wonder</span></div>
-                <div class="wish-text">I wish that you never lose your sense of wonder, and that life never ceases to amaze you.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 3</div>
-                <div class="flower-tag">Pink Daffodil <span>• For joy and laughter</span></div>
-                <div class="wish-text">I wish for endless moments that make you laugh so hard your stomach hurts.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 4</div>
-                <div class="flower-tag">Oak Leaf Geranium <span>• For true protection</span></div>
-                <div class="wish-text">I wish that you always feel safe, protected, and completely cherished, no matter where you are.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 5</div>
-                <div class="flower-tag">White Heather <span>• For wishes come true</span></div>
-                <div class="wish-text">I wish that your wildest, most creative dreams always find a way to come true.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 6</div>
-                <div class="flower-tag">Sweet Pea <span>• For blissful comfort</span></div>
-                <div class="wish-text">I wish you the kind of comfort that feels like a warm Sunday afternoon, every single day.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 7</div>
-                <div class="flower-tag">Pink Peony <span>• For shared prosperity & happiness</span></div>
-                <div class="wish-text">I wish to always share beautiful hotel buffet dates with you, filling our plates and spending hours just talking and laughing.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 8</div>
-                <div class="flower-tag">Blue Aster <span>• For devotion and loyalty</span></div>
-                <div class="wish-text">I wish that you are always surrounded by people who truly understand your heart and celebrate exactly who you are.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 9</div>
-                <div class="flower-tag">White Lotus <span>• For peace of mind</span></div>
-                <div class="wish-text">I wish that your mind stays a peaceful place, filled with clarity, focus, and quiet confidence.</div>
-            </div>
-
-            <div class="wish-card special-wish">
-                <div class="wish-num">Wish 10</div>
-                <div class="flower-tag">Osmanthus <span>• For a sweet, unforgettable bond</span></div>
-                <div class="wish-text">While the other wishes are for the future, this one is just for us: I wish that our story stays as sweet, comforting, and perfectly unforgettable as sharing a cup of Osmanthus Milk Tea from Chagee.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 11</div>
-                <div class="flower-tag">Calla Lily <span>• For magnificent beauty</span></div>
-                <div class="wish-text">I wish that your gorgeous hair always catches the perfect light, and that you always feel as stunning as you look to me.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 12</div>
-                <div class="flower-tag">Bellflower <span>• For a surreal, gratitude-filled voice</span></div>
-                <div class="wish-text">I wish that your surreal, beautiful voice is always heard, always valued, and always brings peace to those lucky enough to listen.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 13</div>
-                <div class="flower-tag">Yellow Tulip <span>• For a bright, sweet smile</span></div>
-                <div class="wish-text">I wish that your sweet smile remains a permanent fixture, never faded by worry or doubt.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 14</div>
-                <div class="flower-tag">Bird of Paradise <span>• For magnificent travel & freedom</span></div>
-                <div class="wish-text">I wish to travel the world by your side, exploring new cities and making memories in places we've only talked about.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 15</div>
-                <div class="flower-tag">Ranunculus <span>• For radiant charm & style</span></div>
-                <div class="wish-text">I wish to walk into every single Sephora across the globe with you, happily waiting while you find your favorites.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 16</div>
-                <div class="flower-tag">Gladiolus <span>• For strength & smooth paths</span></div>
-                <div class="wish-text">I wish for your path ahead to be incredibly smooth, clear, and filled with exciting new milestones.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 17</div>
-                <div class="flower-tag">Amaryllis <span>• For proud, worth-knowing beauty</span></div>
-                <div class="wish-text">I wish that you always recognize your own worth, never settling for anything less than the absolute best.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 18</div>
-                <div class="flower-tag">Italian Anemone <span>• For anticipation & dreams of Rome</span></div>
-                <div class="wish-text">I wish that instead of just eating at Roma in PIM, we can eat in actual Rome together soon.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 19</div>
-                <div class="flower-tag">Forget-Me-Not <span>• For lasting memories in simple moments</span></div>
-                <div class="wish-text">I wish that our simplest, most ordinary moments together remain some of the happiest highlights of your days.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 20</div>
-                <div class="flower-tag">Night-Blooming Cereus <span>• For love beneath the stars</span></div>
-                <div class="wish-text">I wish that the stars above keep shining their softest light on us, guiding us and keeping us wrapped up in each other's arms forever.</div>
-            </div>
-
-            <div class="wish-card">
-                <div class="wish-num">Wish 21</div>
-                <div class="flower-tag">Laurel Flower <span>• For triumph and proud achievements</span></div>
-                <div class="wish-text">I wish that you look back on everything you’ve achieved so far with immense pride in the woman you’ve become.</div>
-            </div>
-
-            <div class="wish-card" style="border-bottom: none; padding-bottom: 0;">
-                <div class="wish-num">Wish 22</div>
-                <div class="flower-tag">Red Rose <span>• For deep, eternal love</span></div>
-                <div class="wish-text">I wish this life treats you exactly how you deserve to be treated—with endless kindness, warmth, and respect. I wish only the absolute best for your family and the loved ones around you, because seeing the people you care about happy is what brings you peace. More than anything, I wish you a life free of heavy burdens, filled with genuine joy, and I wish to be the one who stands by you through every single chapter, loving you more with each passing year.</div>
-            </div>
-
+    <!-- SCREEN 1: GATEKEEPER -->
+    <div id="gate-screen" class="screen active">
+        <h1>Only for her eyes to see... 🌹</h1>
+        <div class="pwd-box">
+            <input type="password" id="passwordInput" placeholder="Enter your birthday (DDMMYYYY)">
+            <button class="btn" onclick="checkPassword()">Unlock</button>
         </div>
-
-        <footer>
-            Happy 22nd Birthday to the girl who makes everything look effortless and feel beautiful.
-        </footer>
     </div>
 
+    <!-- SCREEN 2: 22 WISHES -->
+    <div id="wish-screen" class="screen">
+        <div class="book-container">
+            <div>
+                <div class="floral-accent" id="garden-emoji-accent">🌸 ✨ 🌺</div>
+                <div class="wish-num" id="wish-number">Wish 1</div>
+                <div class="wish-text" id="wish-content">Loading your wish...</div>
+            </div>
+            <div class="nav-btns">
+                <button class="btn btn-sec" id="prevBtn" onclick="prevWish()">Back</button>
+                <button class="btn" id="nextBtn" onclick="nextWish()">Next Wish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: FINAL CELEBRATION -->
+    <div id="final-screen" class="screen">
+        <div class="photo-frame">
+            <img src="image_88f6dc.jpeg" alt="Aura & Arkan">
+        </div>
+        <div class="final-message">
+            <h2>Happy 22nd Birthday! 🎂</h2>
+            <p>To the girl who makes everything look effortless and feel beautiful. May this year bring you all the warmth, joy, and peace in the universe. I wish only the absolute best for your family and the loved ones around you, because seeing the people you care about happy is what brings you peace. More than anything, I wish you a life free of heavy burdens, filled with genuine joy, and I wish to be the one who stands by you through every single chapter, loving you more with each passing year. ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        const wishes = [
+            "I wish that the universe always treats you with the same absolute gentleness and innocence you bring into the world.",
+            "I wish that you never lose your sense of wonder, and that life never ceases to amaze you.",
+            "I wish for endless moments that make you laugh so hard your stomach hurts.",
+            "I wish that you always feel safe, protected, and completely cherished, no matter where you are.",
+            "I wish that your wildest, most creative dreams always find a way to come true.",
+            "I wish you the kind of comfort that feels like a warm Sunday afternoon, every single day.",
+            "I wish to always share beautiful hotel buffet dates with you, filling our plates and spending hours just talking and laughing.",
+            "I wish that you are always surrounded by people who truly understand your heart and celebrate exactly who you are.",
+            "I wish that your mind stays a peaceful place, filled with clarity, focus, and quiet confidence.",
+            "While the other wishes are for the future, this one is just for us: I wish that our story stays as sweet, comforting, and perfectly unforgettable as sharing a cup of Osmanthus Milk Tea from Chagee.",
+            "I wish that your gorgeous hair always catches the perfect light, and that you always feel as stunning as you look to me.",
+            "I wish that your surreal, beautiful voice is always heard, always valued, and always brings peace to those lucky enough to listen.",
+            "I wish that your sweet smile remains a permanent fixture, never faded by worry or doubt.",
+            "I wish to travel the world by your side, exploring new cities and making memories in places we've only talked about.",
+            "I wish to walk into every single Sephora across the globe with you, happily waiting while you find your favorites.",
+            "I wish for your path ahead to be incredibly smooth, clear, and filled with exciting new milestones.",
+            "I wish that you always recognize your own worth, never settling for anything less than the absolute best.",
+            "I wish that instead of just eating at Roma in PIM, we can eat in actual Rome together soon.",
+            "I wish that our simplest, most ordinary moments together remain some of the happiest highlights of your days.",
+            "I wish that the stars above keep shining their softest light on us, guiding us and keeping us wrapped up in each other's arms forever.",
+            "I wish that you look back on everything you’ve achieved so far with immense pride in the woman you’ve become.",
+            "I wish this life treats you exactly how you deserve to be treated, with endless kindness, warmth, and respect."
+        ];
+
+        // 22 unique color combinations and floral palettes for each garden theme
+        const gardenThemes = [
+            { bg: "linear-gradient(135deg, #ffe5ec, #ffc2d1)", flowers: ["🌸", "💮", "✨"], accent: "🌸 ✨ 🌺" }, // Soft Blush Rose
+            { bg: "linear-gradient(135deg, #f3e5f5, #e1bee7)", flowers: ["🔮", "🪻", "💜"], accent: "🪻 ✨ 🔮" }, // Lavender Fields
+            { bg: "linear-gradient(135deg, #fff3e0, #ffe0b2)", flowers: ["🌻", "🌼", "✨"], accent: "🌻 ✨ 🌼" }, // Golden Marigold
+            { bg: "linear-gradient(135deg, #e8f5e9, #c8e6c9)", flowers: ["🌿", "🍃", "🍀"], accent: "🍃 ✨ 🌿" }, // Emerald Mint Garden
+            { bg: "linear-gradient(135deg, #e0f7fa, #b2ebf2)", flowers: ["💎", "❄️", "🪷"], accent: "🪷 ✨ 💎" }, // Morning Dew Orchid
+            { bg: "linear-gradient(135deg, #fff5f5, #fed7d7)", flowers: ["🌹", "🥀", "❤️"], accent: "🌹 ✨ ❤️" }, // Crimson Rose Sanctuary
+            { bg: "linear-gradient(135deg, #f0f4f8, #d9e2ec)", flowers: ["💮", "☁️", "✨"], accent: "💮 ✨ ☁️" }, // Serene White Jasmine
+            { bg: "linear-gradient(135deg, #fff9db, #fff3bf)", flowers: ["튤", "🌷", "✨"], accent: "🌷 ✨ 💛" }, // Sunny Tulip Meadow
+            { bg: "linear-gradient(135deg, #f8f0fc, #f1daf7)", flowers: ["🌸", "🪻", "🔮"], accent: "🌸 ✨ 🪻" }, // Violet Dusk Wisteria
+            { bg: "linear-gradient(135deg, #e6fffa, #b2f5ea)", flowers: ["🌿", "🪷", "✨"], accent: "🪷 ✨ 🌿" }, // Water Lily Pond
+            { bg: "linear-gradient(135deg, #fff0f6, #ffdeeb)", flowers: ["🌺", "🌸", "💖"], accent: "🌺 ✨ 💖" }, // Fuchsia Blossom Trail
+            { bg: "linear-gradient(135deg, #faf5ff, #e9d8fd)", flowers: ["🪻", "💮", "🔮"], accent: "🪻 ✨ 💮" }, // Twilight Lilac Walk
+            { bg: "linear-gradient(135deg, #fffaf0, #fdedf2)", flowers: ["🌹", "🌸", "✨"], accent: "🌹 ✨ 🌸" }, // Peony & Tea Rose Valley
+            { bg: "linear-gradient(135deg, #f0fdf4, #dcfce7)", flowers: ["🍀", "🌿", "🌼"], accent: "🌿 ✨ 🌼" }, // Clover Meadow
+            { bg: "linear-gradient(135deg, #fef2f2, #fee2e2)", flowers: ["🌹", "💖", "✨"], accent: "🌹 ✨ 💖" }, // Sweet Valentine Arbor
+            { bg: "linear-gradient(135deg, #eff6ff, #dbeafe)", flowers: ["🪷", "🦋", "✨"], accent: "🪷 ✨ 🦋" }, // Blue Hydrangea Glade
+            { bg: "linear-gradient(135deg, #fdf2f8, #fce7f3)", flowers: ["🌸", "💮", "🌺"], accent: "🌸 ✨ 🌺" }, // Cherry Blossom Path
+            { bg: "linear-gradient(135deg, #fffbeb, #fef3c7)", flowers: ["🌻", "🌿", "✨"], accent: "🌻 ✨ 🌿" }, // Sun-kissed Sunflower Field
+            { bg: "linear-gradient(135deg, #f5f3ff, #ede9fe)", flowers: ["🪻", "🔮", "✨"], accent: "🪻 ✨ 🔮" }, // Royal Wisteria Canopy
+            { bg: "linear-gradient(135deg, #fff1f2, #ffe4e6)", flowers: ["🌹", "🌷", "🌸"], accent: "🌹 ✨ 🌷" }, // Secret Imperial Garden
+            { bg: "linear-gradient(135deg, #f0fdfa, #ccfbf1)", flowers: ["🪷", "🌿", "🍃"], accent: "🪷 ✨ 🍃" }, // Botanical Zen Glasshouse
+            { bg: "linear-gradient(135deg, #ffffff, #ffe5ec)", flowers: ["💝", "🌹", "✨"], accent: "💖 ✨ 🌹" }  // Ultimate Eternal Paradise
+        ];
+
+        let currentIdx = 0;
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            if (input === '03072004') {
+                transitionScreen('gate-screen', 'wish-screen');
+                updateWish();
+            } else {
+                alert("Incorrect password. Hint: Your special date (DDMMYYYY) ❤️");
+            }
+        }
+
+        function generateGardenDecorations(theme) {
+            const container = document.getElementById('gardenLayer');
+            container.innerHTML = ''; // Clear out the previous garden layout completely
+            
+            // Generate 12 scattered floating flower nodes perfectly framed around the card
+            for (let i = 0; i < 12; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'floating-flower';
+                flower.innerText = theme.flowers[Math.floor(Math.random() * theme.flowers.length)];
+                
+                // Keep layout clear of the center card so it reads beautifully on phones
+                const leftSide = Math.random() < 0.5;
+                const xPos = leftSide ? (Math.random() * 20) : (80 + Math.random() * 15);
+                const yPos = Math.random() * 90;
+                
+                flower.style.left = `${xPos}%`;
+                flower.style.top = `${yPos}%`;
+                
+                // Stagger animations smoothly
+                flower.style.animationDelay = `${Math.random() * -5}s`;
+                flower.style.animationDuration = `${5 + Math.random() * 3}s`;
+                flower.style.fontSize = `${2 + Math.random() * 1.5}rem`;
+                
+                container.appendChild(flower);
+            }
+        }
+
+        function updateWish() {
+            const activeTheme = gardenThemes[currentIdx];
+            
+            // Programmatically change the environment settings
+            document.body.style.background = activeTheme.bg;
+            document.getElementById('garden-emoji-accent').innerText = activeTheme.accent;
+            generateGardenDecorations(activeTheme);
+
+            document.getElementById('wish-number').innerText = `Wish ${currentIdx + 1} of 22`;
+            document.getElementById('wish-content').innerText = wishes[currentIdx];
+            
+            document.getElementById('prevBtn').style.visibility = currentIdx === 0 ? 'hidden' : 'visible';
+            
+            if (currentIdx === wishes.length - 1) {
+                document.getElementById('nextBtn').innerText = "Open My Final Letter";
+            } else {
+                document.getElementById('nextBtn').innerText = "Next Wish";
+            }
+        }
+
+        function nextWish() {
+            if (currentIdx < wishes.length - 1) {
+                currentIdx++;
+                updateWish();
+            } else {
+                // Return layout to clean white background for the photography reveal
+                document.body.style.background = "linear-gradient(135deg, #ffe5ec, #ffb3c6)";
+                document.getElementById('gardenLayer').innerHTML = '';
+                transitionScreen('wish-screen', 'final-screen');
+            }
+        }
+
+        function prevWish() {
+            if (currentIdx > 0) {
+                currentIdx--;
+                updateWish();
+            }
+        }
+
+        function transitionScreen(hideId, showId) {
+            const hide = document.getElementById(hideId);
+            const show = document.getElementById(showId);
+            hide.style.opacity = '0';
+            setTimeout(() => {
+                hide.style.display = 'none';
+                show.style.display = 'block';
+                setTimeout(() => show.style.opacity = '1', 50);
+            }, 600);
+        }
+
+        // Initialize background flowers nicely for the gatekeeper screen
+        window.onload = () => {
+            generateGardenDecorations(gardenThemes[0]);
+        };
+    </script>
 </body>
 </html>
