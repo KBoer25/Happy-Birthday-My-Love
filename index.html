@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only For Her Eyes To See 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blush-pink: #ffe5ec;
+            --rose-pink: #ffb3c6;
+            --deep-red: #800020;
+            --crimson: #a4161a;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--blush-pink); font-family: 'Inter', sans-serif; color: var(--deep-red); overflow-x: hidden; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+
+        .screen { display: none; width: 100%; max-width: 600px; padding: 30px; text-align: center; opacity: 0; transition: opacity 0.8s ease; }
+        .active { display: block; opacity: 1; }
+
+        #gate-screen h1 { font-size: 2.2rem; font-style: italic; margin-bottom: 25px; color: var(--crimson); letter-spacing: 1px; }
+        .pwd-box { background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(164, 22, 26, 0.08); border: 1px solid rgba(255, 179, 198, 0.4); }
+        input { width: 100%; padding: 15px; border-radius: 50px; border: 1px solid var(--rose-pink); font-size: 1.1rem; text-align: center; margin-bottom: 20px; outline: none; color: var(--deep-red); background: #fffcfd; }
+        input:focus { border-color: var(--crimson); }
+        
+        .btn { padding: 14px 40px; border-radius: 50px; border: none; background: linear-gradient(135deg, var(--crimson), var(--deep-red)); color: white; font-size: 1rem; cursor: pointer; transition: 0.3s; font-weight: 500; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(164, 22, 26, 0.2); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(164, 22, 26, 0.3); }
+
+        .book-container { background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid rgba(255, 179, 198, 0.4); position: relative; min-height: 380px; display: flex; flex-direction: column; justify-content: space-between; }
+        .floral-accent { font-size: 24px; margin-bottom: 15px; }
+        .wish-num { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--rose-pink); font-weight: 600; margin-bottom: 10px; }
+        .wish-text { font-family: 'Playfair Display', serif; font-size: 1.35rem; line-height: 1.7; font-style: italic; color: var(--deep-red); margin-bottom: 30px; }
+        .nav-btns { display: flex; justify-content: space-between; gap: 15px; }
+        .btn-sec { background: transparent; border: 1px solid var(--rose-pink); color: var(--deep-red); box-shadow: none; }
+        .btn-sec:hover { background: var(--blush-pink); }
+
+        #final-screen { max-width: 700px; padding: 40px 20px; }
+        .photo-frame { width: 100%; max-width: 450px; margin: 0 auto 35px auto; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(128,0,32,0.15); border: 8px solid white; transform: rotate(-1deg); }
+        .photo-frame img { width: 100%; height: auto; display: block; }
+        .final-message { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: left; line-height: 1.8; font-size: 1.05rem; border-left: 5px solid var(--crimson); }
+        .final-message h2 { margin-bottom: 20px; color: var(--crimson); text-align: center; font-size: 2rem; }
+    </style>
+</head>
+<body>
+
+    <!-- SCREEN 1: GATEKEEPER -->
+    <div id="gate-screen" class="screen active">
+        <h1>Only for her eyes to see... 🌹</h1>
+        <div class="pwd-box">
+            <input type="password" id="passwordInput" placeholder="Enter your birthday (DDMMYYYY)">
+            <button class="btn" onclick="checkPassword()">Unlock</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: 22 WISHES -->
+    <div id="wish-screen" class="screen">
+        <div class="book-container">
+            <div>
+                <div class="floral-accent">🌸 ✨ 🌺</div>
+                <div class="wish-num" id="wish-number">Wish 1</div>
+                <div class="wish-text" id="wish-content">Loading your wish...</div>
+            </div>
+            <div class="nav-btns">
+                <button class="btn btn-sec" id="prevBtn" onclick="prevWish()">Back</button>
+                <button class="btn" id="nextBtn" onclick="nextWish()">Next Wish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: FINAL CELEBRATION -->
+    <div id="final-screen" class="screen">
+        <div class="photo-frame">
+            <!-- Adjusted for your exact .jpeg file extension -->
+            <img src="image_88f6dc.jpeg" alt="Aura & Arkan">
+        </div>
+        <div class="final-message">
+            <h2>Happy 22nd Birthday! 🎂</h2>
+            <p>To the girl who makes everything look effortless and feel beautiful. May this year bring you all the warmth, joy, and peace in the universe. I love you endlessly, chapter after chapter. ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        const wishes = [
+            "I wish that the universe always treats you with the same absolute gentleness and innocence you bring into the world.",
+            "I wish that you never lose your sense of wonder, and that life never ceases to amaze you.",
+            "I wish for endless moments that make you laugh so hard your stomach hurts.",
+            "I wish that you always feel safe, protected, and completely cherished, no matter where you are.",
+            "I wish that your wildest, most creative dreams always find a way to come true.",
+            "I wish you the kind of comfort that feels like a warm Sunday afternoon, every single day.",
+            "I wish to always share beautiful hotel buffet dates with you, filling our plates and spending hours just talking and laughing.",
+            "I wish that you are always surrounded by people who truly understand your heart and celebrate exactly who you are.",
+            "I wish that your mind stays a peaceful place, filled with clarity, focus, and quiet confidence.",
+            "While the other wishes are for the future, this one is just for us: I wish that our story stays as sweet, comforting, and perfectly unforgettable as sharing a cup of Osmanthus Milk Tea from Chagee.",
+            "I wish that your gorgeous hair always catches the perfect light, and that you always feel as stunning as you look to me.",
+            "I wish that your surreal, beautiful voice is always heard, always valued, and always brings peace to those lucky enough to listen.",
+            "I wish that your sweet smile remains a permanent fixture, never faded by worry or doubt.",
+            "I wish to travel the world by your side, exploring new cities and making memories in places we've only talked about.",
+            "I wish to walk into every single Sephora across the globe with you, happily waiting while you find your favorites.",
+            "I wish for your path ahead to be incredibly smooth, clear, and filled with exciting new milestones.",
+            "I wish that you always recognize your own worth, never settling for anything less than the absolute best.",
+            "I wish that instead of just eating at Roma in PIM, we can eat in actual Rome together soon.",
+            "I wish that our simplest, most ordinary moments together remain some of the happiest highlights of your days.",
+            "I wish that the stars above keep shining their softest light on us, guiding us and keeping us wrapped up in each other's arms forever.",
+            "I wish that you look back on everything you’ve achieved so far with immense pride in the woman you’ve become.",
+            "I wish this life treats you exactly how you deserve to be treated, with endless kindness, warmth, and respect. I wish only the absolute best for your family and the loved ones around you, because seeing the people you care about happy is what brings you peace. More than anything, I wish you a life free of heavy burdens, filled with genuine joy, and I wish to be the one who stands by you through every single chapter, loving you more with each passing year."
+        ];
+
+        let currentIdx = 0;
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            if (input === '03072004') {
+                transitionScreen('gate-screen', 'wish-screen');
+                updateWish();
+            } else {
+                alert("Incorrect password. Hint: Your special date (DDMMYYYY) ❤️");
+            }
+        }
+
+        function updateWish() {
+            document.getElementById('wish-number').innerText = `Wish ${currentIdx + 1} of 22`;
+            document.getElementById('wish-content').innerText = wishes[currentIdx];
+            
+            document.getElementById('prevBtn').style.visibility = currentIdx === 0 ? 'hidden' : 'visible';
+            
+            if (currentIdx === wishes.length - 1) {
+                document.getElementById('nextBtn').innerText = "Open My Final Letter";
+            } else {
+                document.getElementById('nextBtn').innerText = "Next Wish";
+            }
+        }
+
+        function nextWish() {
+            if (currentIdx < wishes.length - 1) {
+                currentIdx++;
+                updateWish();
+            } else {
+                transitionScreen('wish-screen', 'final-screen');
+            }
+        }
+
+        function prevWish() {
+            if (currentIdx > 0) {
+                currentIdx--;
+                updateWish();
+            }
+        }
+
+        function transitionScreen(hideId, showId) {
+            const hide = document.getElementById(hideId);
+            const show = document.getElementById(showId);
+            hide.style.opacity = '0';
+            setTimeout(() => {
+                hide.style.display = 'none';
+                show.style.display = 'block';
+                setTimeout(() => show.style.opacity = '1', 50);
+            }, 600);
+        }
+    </script>
+</body>
+</html>
