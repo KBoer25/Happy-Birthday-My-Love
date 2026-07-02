@@ -14,7 +14,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* Smooth transition for the changing background gardens */
         body { 
             background: linear-gradient(135deg, #ffe5ec, #ffc2d1); 
             font-family: 'Inter', sans-serif; 
@@ -30,7 +29,6 @@
         
         h1, h2 { font-family: 'Playfair Display', serif; }
 
-        /* Floating Garden Flowers Layer */
         .garden-layer {
             position: absolute;
             width: 100%;
@@ -83,10 +81,8 @@
 </head>
 <body>
 
-    <!-- DYNAMIC BACKGROUND LAYER -->
     <div id="gardenLayer" class="garden-layer"></div>
 
-    <!-- SCREEN 1: GATEKEEPER -->
     <div id="gate-screen" class="screen active">
         <h1>Only for her eyes to see... 🌹</h1>
         <div class="pwd-box">
@@ -95,7 +91,6 @@
         </div>
     </div>
 
-    <!-- SCREEN 2: 22 WISHES -->
     <div id="wish-screen" class="screen">
         <div class="book-container">
             <div>
@@ -110,7 +105,6 @@
         </div>
     </div>
 
-    <!-- SCREEN 3: FINAL CELEBRATION -->
     <div id="final-screen" class="screen">
         <div class="photo-frame">
             <img src="image_88f6dc.jpeg" alt="Aura & Arkan">
@@ -143,34 +137,33 @@
             "I wish that instead of just eating at Roma in PIM, we can eat in actual Rome together soon.",
             "I wish that our simplest, most ordinary moments together remain some of the happiest highlights of your days.",
             "I wish that the stars above keep shining their softest light on us, guiding us and keeping us wrapped up in each other's arms forever.",
-            "I wish that you look back on everything you’ve achieved so far with immense pride in the woman you’ve become.",
+            "I wish that you look back on everything you've achieved so far with immense pride in the woman you've become.",
             "I wish this life treats you exactly how you deserve to be treated, with endless kindness, warmth, and respect."
         ];
 
-        // 22 unique color combinations and floral palettes for each garden theme
         const gardenThemes = [
-            { bg: "linear-gradient(135deg, #ffe5ec, #ffc2d1)", flowers: ["🌸", "💮", "✨"], accent: "🌸 ✨ 🌺" }, // Soft Blush Rose
-            { bg: "linear-gradient(135deg, #f3e5f5, #e1bee7)", flowers: ["🔮", "🪻", "💜"], accent: "🪻 ✨ 🔮" }, // Lavender Fields
-            { bg: "linear-gradient(135deg, #fff3e0, #ffe0b2)", flowers: ["🌻", "🌼", "✨"], accent: "🌻 ✨ 🌼" }, // Golden Marigold
-            { bg: "linear-gradient(135deg, #e8f5e9, #c8e6c9)", flowers: ["🌿", "🍃", "🍀"], accent: "🍃 ✨ 🌿" }, // Emerald Mint Garden
-            { bg: "linear-gradient(135deg, #e0f7fa, #b2ebf2)", flowers: ["💎", "❄️", "🪷"], accent: "🪷 ✨ 💎" }, // Morning Dew Orchid
-            { bg: "linear-gradient(135deg, #fff5f5, #fed7d7)", flowers: ["🌹", "🥀", "❤️"], accent: "🌹 ✨ ❤️" }, // Crimson Rose Sanctuary
-            { bg: "linear-gradient(135deg, #f0f4f8, #d9e2ec)", flowers: ["💮", "☁️", "✨"], accent: "💮 ✨ ☁️" }, // Serene White Jasmine
-            { bg: "linear-gradient(135deg, #fff9db, #fff3bf)", flowers: ["튤", "🌷", "✨"], accent: "🌷 ✨ 💛" }, // Sunny Tulip Meadow
-            { bg: "linear-gradient(135deg, #f8f0fc, #f1daf7)", flowers: ["🌸", "🪻", "🔮"], accent: "🌸 ✨ 🪻" }, // Violet Dusk Wisteria
-            { bg: "linear-gradient(135deg, #e6fffa, #b2f5ea)", flowers: ["🌿", "🪷", "✨"], accent: "🪷 ✨ 🌿" }, // Water Lily Pond
-            { bg: "linear-gradient(135deg, #fff0f6, #ffdeeb)", flowers: ["🌺", "🌸", "💖"], accent: "🌺 ✨ 💖" }, // Fuchsia Blossom Trail
-            { bg: "linear-gradient(135deg, #faf5ff, #e9d8fd)", flowers: ["🪻", "💮", "🔮"], accent: "🪻 ✨ 💮" }, // Twilight Lilac Walk
-            { bg: "linear-gradient(135deg, #fffaf0, #fdedf2)", flowers: ["🌹", "🌸", "✨"], accent: "🌹 ✨ 🌸" }, // Peony & Tea Rose Valley
-            { bg: "linear-gradient(135deg, #f0fdf4, #dcfce7)", flowers: ["🍀", "🌿", "🌼"], accent: "🌿 ✨ 🌼" }, // Clover Meadow
-            { bg: "linear-gradient(135deg, #fef2f2, #fee2e2)", flowers: ["🌹", "💖", "✨"], accent: "🌹 ✨ 💖" }, // Sweet Valentine Arbor
-            { bg: "linear-gradient(135deg, #eff6ff, #dbeafe)", flowers: ["🪷", "🦋", "✨"], accent: "🪷 ✨ 🦋" }, // Blue Hydrangea Glade
-            { bg: "linear-gradient(135deg, #fdf2f8, #fce7f3)", flowers: ["🌸", "💮", "🌺"], accent: "🌸 ✨ 🌺" }, // Cherry Blossom Path
-            { bg: "linear-gradient(135deg, #fffbeb, #fef3c7)", flowers: ["🌻", "🌿", "✨"], accent: "🌻 ✨ 🌿" }, // Sun-kissed Sunflower Field
-            { bg: "linear-gradient(135deg, #f5f3ff, #ede9fe)", flowers: ["🪻", "🔮", "✨"], accent: "🪻 ✨ 🔮" }, // Royal Wisteria Canopy
-            { bg: "linear-gradient(135deg, #fff1f2, #ffe4e6)", flowers: ["🌹", "🌷", "🌸"], accent: "🌹 ✨ 🌷" }, // Secret Imperial Garden
-            { bg: "linear-gradient(135deg, #f0fdfa, #ccfbf1)", flowers: ["🪷", "🌿", "🍃"], accent: "🪷 ✨ 🍃" }, // Botanical Zen Glasshouse
-            { bg: "linear-gradient(135deg, #ffffff, #ffe5ec)", flowers: ["💝", "🌹", "✨"], accent: "💖 ✨ 🌹" }  // Ultimate Eternal Paradise
+            { bg: "linear-gradient(135deg, #ffe5ec, #ffc2d1)", flowers: ["🌸", "💮", "✨"], accent: "🌸 ✨ 🌺" },
+            { bg: "linear-gradient(135deg, #f3e5f5, #e1bee7)", flowers: ["🔮", "🪻", "💜"], accent: "🪻 ✨ 🔮" },
+            { bg: "linear-gradient(135deg, #fff3e0, #ffe0b2)", flowers: ["🌻", "🌼", "✨"], accent: "🌻 ✨ 🌼" },
+            { bg: "linear-gradient(135deg, #e8f5e9, #c8e6c9)", flowers: ["🌿", "🍃", "🍀"], accent: "🍃 ✨ 🌿" },
+            { bg: "linear-gradient(135deg, #e0f7fa, #b2ebf2)", flowers: ["💎", "❄️", "🪷"], accent: "🪷 ✨ 💎" },
+            { bg: "linear-gradient(135deg, #fff5f5, #fed7d7)", flowers: ["🌹", "🥀", "❤️"], accent: "🌹 ✨ ❤️" },
+            { bg: "linear-gradient(135deg, #f0f4f8, #d9e2ec)", flowers: ["💮", "☁️", "✨"], accent: "💮 ✨ ☁️" },
+            { bg: "linear-gradient(135deg, #fff9db, #fff3bf)", flowers: ["🌷", "🌷", "✨"], accent: "🌷 ✨ 💛" },
+            { bg: "linear-gradient(135deg, #f8f0fc, #f1daf7)", flowers: ["🌸", "🪻", "🔮"], accent: "🌸 ✨ 🪻" },
+            { bg: "linear-gradient(135deg, #e6fffa, #b2f5ea)", flowers: ["🌿", "🪷", "✨"], accent: "🪷 ✨ 🌿" },
+            { bg: "linear-gradient(135deg, #fff0f6, #ffdeeb)", flowers: ["🌺", "🌸", "💖"], accent: "🌺 ✨ 💖" },
+            { bg: "linear-gradient(135deg, #faf5ff, #e9d8fd)", flowers: ["🪻", "💮", "🔮"], accent: "🪻 ✨ 💮" },
+            { bg: "linear-gradient(135deg, #fffaf0, #fdedf2)", flowers: ["🌹", "🌸", "✨"], accent: "🌹 ✨ 🌸" },
+            { bg: "linear-gradient(135deg, #f0fdf4, #dcfce7)", flowers: ["🍀", "🌿", "🌼"], accent: "🌿 ✨ 🌼" },
+            { bg: "linear-gradient(135deg, #fef2f2, #fee2e2)", flowers: ["🌹", "💖", "✨"], accent: "🌹 ✨ 💖" },
+            { bg: "linear-gradient(135deg, #eff6ff, #dbeafe)", flowers: ["🪷", "🦋", "✨"], accent: "🪷 ✨ 🦋" },
+            { bg: "linear-gradient(135deg, #fdf2f8, #fce7f3)", flowers: ["🌸", "💮", "🌺"], accent: "🌸 ✨ 🌺" },
+            { bg: "linear-gradient(135deg, #fffbeb, #fef3c7)", flowers: ["🌻", "🌿", "✨"], accent: "🌻 ✨ 🌿" },
+            { bg: "linear-gradient(135deg, #f5f3ff, #ede9fe)", flowers: ["🪻", "🔮", "✨"], accent: "🪻 ✨ 🔮" },
+            { bg: "linear-gradient(135deg, #fff1f2, #ffe4e6)", flowers: ["🌹", "🌷", "🌸"], accent: "🌹 ✨ 🌷" },
+            { bg: "linear-gradient(135deg, #f0fdfa, #ccfbf1)", flowers: ["🪷", "🌿", "🍃"], accent: "🪷 ✨ 🍃" },
+            { bg: "linear-gradient(135deg, #ffffff, #ffe5ec)", flowers: ["💝", "🌹", "✨"], accent: "💖 ✨ 🌹" }
         ];
 
         let currentIdx = 0;
@@ -187,15 +180,13 @@
 
         function generateGardenDecorations(theme) {
             const container = document.getElementById('gardenLayer');
-            container.innerHTML = ''; // Clear out the previous garden layout completely
+            container.innerHTML = '';
             
-            // Generate 12 scattered floating flower nodes perfectly framed around the card
             for (let i = 0; i < 12; i++) {
                 const flower = document.createElement('div');
                 flower.className = 'floating-flower';
                 flower.innerText = theme.flowers[Math.floor(Math.random() * theme.flowers.length)];
                 
-                // Keep layout clear of the center card so it reads beautifully on phones
                 const leftSide = Math.random() < 0.5;
                 const xPos = leftSide ? (Math.random() * 20) : (80 + Math.random() * 15);
                 const yPos = Math.random() * 90;
@@ -203,7 +194,6 @@
                 flower.style.left = `${xPos}%`;
                 flower.style.top = `${yPos}%`;
                 
-                // Stagger animations smoothly
                 flower.style.animationDelay = `${Math.random() * -5}s`;
                 flower.style.animationDuration = `${5 + Math.random() * 3}s`;
                 flower.style.fontSize = `${2 + Math.random() * 1.5}rem`;
@@ -215,7 +205,6 @@
         function updateWish() {
             const activeTheme = gardenThemes[currentIdx];
             
-            // Programmatically change the environment settings
             document.body.style.background = activeTheme.bg;
             document.getElementById('garden-emoji-accent').innerText = activeTheme.accent;
             generateGardenDecorations(activeTheme);
@@ -237,7 +226,6 @@
                 currentIdx++;
                 updateWish();
             } else {
-                // Return layout to clean white background for the photography reveal
                 document.body.style.background = "linear-gradient(135deg, #ffe5ec, #ffb3c6)";
                 document.getElementById('gardenLayer').innerHTML = '';
                 transitionScreen('wish-screen', 'final-screen');
@@ -262,7 +250,6 @@
             }, 600);
         }
 
-        // Initialize background flowers nicely for the gatekeeper screen
         window.onload = () => {
             generateGardenDecorations(gardenThemes[0]);
         };
