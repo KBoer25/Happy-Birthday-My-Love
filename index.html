@@ -46,9 +46,6 @@
 </head>
 <body>
 
-    <!-- Hidden Background Audio Component -->
-    <audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
-
     <!-- SCREEN 1: GATEKEEPER -->
     <div id="gate-screen" class="screen active">
         <h1>Only for her eyes to see... 🌹</h1>
@@ -115,10 +112,6 @@
         function checkPassword() {
             const input = document.getElementById('passwordInput').value;
             if (input === '03072004') {
-                // Triggers Michael Bublé background audio immediately upon clicking Unlock
-                const music = document.getElementById('bgMusic');
-                music.play().catch(error => console.log("Audio playback interaction triggered safely:", error));
-                
                 transitionScreen('gate-screen', 'wish-screen');
                 updateWish();
             } else {
